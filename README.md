@@ -102,7 +102,7 @@ You can check the detailed changes in [pull request](https://github.com/oskardud
 * `docker-compose up` - as described above, gets images and starts containers,
 * `docker-compose kill` - kills running dockers,
 * `docker-compose pull` - pulls latest docker images,
-* `docker system prune` - clean up all containers that were get through `pull` and `up` commands. Usefull for cleaning the disk space and making sure that you have the assumed version of docker (`docker system prune` + `docker-compose up`), or just resetting state of the docker container,
+* `docker system prune` - clean up all containers that were get through `pull` and `up` commands. Useful for cleaning the disk space and making sure that you have the assumed version of docker (`docker system prune` + `docker-compose up`), or just resetting state of the docker container,
 * `docker ps` - lists all running docker containers.
 
 You can check the detailed changes in [pull request](https://github.com/oskardudycz/NetCoreWithDockerCI/pull/6/files)
