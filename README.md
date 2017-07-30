@@ -22,4 +22,4 @@ We will use default Visual Studio template for the WebApi project:
 6. Now you have your basic app setup, you can click `F5` to run it.
 7. If everything went properly then you should see browser page with `http://localhost:{port}/api/values` and `["value1","value2"]`.
 
-You can check the details of changes in [pull request](https://github.com/oskardudycz/NetCoreWithDockerCI/pull/2)
+You can check the detailed changes in [pull request](https://github.com/oskardudycz/NetCoreWithDockerCI/pull/2/files)
