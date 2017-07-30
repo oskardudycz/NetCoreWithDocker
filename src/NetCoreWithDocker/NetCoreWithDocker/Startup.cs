@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using NetCoreWithDocker.Storage;
+using Microsoft.EntityFrameworkCore;
 
 namespace NetCoreWithDocker
 {
@@ -29,6 +31,13 @@ namespace NetCoreWithDocker
         {
             // Add framework services.
             services.AddMvc();
+            ConfigureDb(services);
+        }
+
+        public void ConfigureDb(IServiceCollection services)
+        {
+            var connectionString = Configuration.GetConnectionString("TasksDatabase");
+            services.AddDbContext<TasksDbContext>(options => options.UseSqlServer(connectionString));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
