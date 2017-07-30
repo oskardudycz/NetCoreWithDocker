@@ -12,7 +12,7 @@ This example shows how to:
 1. Install [Docker](https://www.docker.com/get-docker) 
 2. Install [Visual Studio 2017](https://www.visualstudio.com/pl/thank-you-downloading-visual-studio/?sku=Community&rel=15), [VisualStudioCode](https://code.visualstudio.com/download), [Rider](https://www.jetbrains.com/rider/) or you other favourite .NET IDE
 
-## Setup new Web Api project
+## Create new Web Api project
 We will use default Visual Studio template for the WebApi project:
 1. From the Visual Studio menu select: `File => New => Project`
 2. Select from the `Templates => Visual C# => .Net Core => ASP.NET Core Web Application`
