@@ -70,7 +70,7 @@ You can check the detailed changes in [pull request](https://github.com/oskardud
 
 1. Having docker being installed, now we can setup the docker container with MSSQL database (run on Linux). We'll use [docker-compose](https://docs.docker.com/compose/) tool, which simplyfies docker management, creation (especially for the multiple containers usage).
 2. Let's add new folder `docker` in the root of our project. We will place there all of the docker configuration. Create also subfolder called `mssql`.
-3. In the `docker` folder let's create [docker-compose.yml]() - this will be our main configuration file. Docker configs are written in [yaml syntax](https://docs.docker.com/compose/compose-file/). 
+3. In the `docker` folder let's create [docker-compose.yml](https://github.com/oskardudycz/NetCoreWithDockerCI/blob/8758dde3b2f02fb017a09c02612062c024167a4c/docker/docker-compose.yml) - this will be our main configuration file. Docker configs are written in [yaml syntax](https://docs.docker.com/compose/compose-file/). 
 4. Our configuration:
     ```yaml
     version: "3"
@@ -83,11 +83,11 @@ You can check the detailed changes in [pull request](https://github.com/oskardud
                 - "1433:1433"
     ```
     It contains following sections:
-    * services - list of services (docker containers) that will be run,
-    * mssql - name of a service. It is provided by us, it could be named even `xyz`,
-    * env_file - reference to the files with environment needed for our service setup,
-    * ports - mapping of our port. This configuration mean that `1433` port from docker container will be mapped to our localhost `1433` port. Without that configuration port will be by default not accessible. It's also usefull if our local port is in use and we'd like to have different port assigned.
-5. Now let's create [variables.env]() file in the `mssql` folder and place there:
+    * `services` - list of services (docker containers) that will be run,
+    * `mssql` - name of a service. It is provided by us, it could be named even `xyz`,
+    * `env_file` - reference to the files with environment needed for our service setup,
+    * `ports` - mapping of our port. This configuration mean that `1433` port from docker container will be mapped to our localhost `1433` port. Without that configuration port will be by default not accessible. It's also usefull if our local port is in use and we'd like to have different port assigned.
+5. Now let's create [variables.env](https://github.com/oskardudycz/NetCoreWithDockerCI/blob/8758dde3b2f02fb017a09c02612062c024167a4c/docker/mssql/variables.env) file in the `mssql` folder and place there:
     ```
     ACCEPT_EULA=Y
     SA_PASSWORD=!QAZxsw2#EDC
@@ -96,7 +96,7 @@ You can check the detailed changes in [pull request](https://github.com/oskardud
     * SA_PASSWORD - `sa` user password
 6. Having this setup ready we can open `CMD` from `docker` directory and run `docker-compose up`. This will download [MSSQL server image](https://hub.docker.com/r/microsoft/mssql-server-linux/) from [Docker Hub](https://hub.docker.com). It will also automatically start the server.
 7. If everything went fine, then you should see `SQL Server is now ready for client connections.` in the `CMD` window.
-8. Now we need to only update our connection strings in [appsettings.json]() and [appsettings.Development.json]() run `Update-Database` from `Package Manager Console` and we can run our application by clicking `F5`!
+8. Now we need to only update our connection strings in [appsettings.json](https://github.com/oskardudycz/NetCoreWithDockerCI/blob/8758dde3b2f02fb017a09c02612062c024167a4c/src/NetCoreWithDocker/NetCoreWithDocker/appsettings.json) and [appsettings.Development.json](https://github.com/oskardudycz/NetCoreWithDockerCI/blob/8758dde3b2f02fb017a09c02612062c024167a4c/src/NetCoreWithDocker/NetCoreWithDocker/appsettings.Development.json) run `Update-Database` from `Package Manager Console` and we can run our application by clicking `F5`!
 9. Piece and cake!
 
 You can check the detailed changes in [pull request](https://github.com/oskardudycz/NetCoreWithDockerCI/pull/6/files)
