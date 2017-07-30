@@ -5,7 +5,7 @@ namespace NetCoreWithDocker.Storage
 {
     public class TasksDbContext : DbContext
     {
-        TasksDbContext(DbContextOptions<TasksDbContext> options)
+        public TasksDbContext(DbContextOptions<TasksDbContext> options)
             : base(options)
         { }
 

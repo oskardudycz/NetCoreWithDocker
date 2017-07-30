@@ -36,7 +36,7 @@ namespace NetCoreWithDocker
 
         public void ConfigureDb(IServiceCollection services)
         {
-            var connectionString = Configuration.GetSection("Database").GetValue<string>("ConnectionString");
+            var connectionString = Configuration.GetConnectionString("TasksDatabase");
             services.AddDbContext<TasksDbContext>(options => options.UseSqlServer(connectionString));
         }
 
