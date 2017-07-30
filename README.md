@@ -92,8 +92,8 @@ You can check the detailed changes in [pull request](https://github.com/oskardud
     ACCEPT_EULA=Y
     SA_PASSWORD=!QAZxsw2#EDC
     ```
-    * ACCEPT_EULA - is needed for accepting MSSQL Server licence terms,
-    * SA_PASSWORD - `sa` user password
+    * `ACCEPT_EULA` - is needed for accepting MSSQL Server licence terms,
+    * `SA_PASSWORD` - `sa` user password
 6. Having this setup ready we can open `CMD` from `docker` directory and run `docker-compose up`. This will download [MSSQL server image](https://hub.docker.com/r/microsoft/mssql-server-linux/) from [Docker Hub](https://hub.docker.com). It will also automatically start the server.
 7. If everything went fine, then you should see `SQL Server is now ready for client connections.` in the `CMD` window.
 8. Now we need to only update our connection strings in [appsettings.json](https://github.com/oskardudycz/NetCoreWithDockerCI/blob/8758dde3b2f02fb017a09c02612062c024167a4c/src/NetCoreWithDocker/NetCoreWithDocker/appsettings.json) and [appsettings.Development.json](https://github.com/oskardudycz/NetCoreWithDockerCI/blob/8758dde3b2f02fb017a09c02612062c024167a4c/src/NetCoreWithDocker/NetCoreWithDocker/appsettings.Development.json) run `Update-Database` from `Package Manager Console` and we can run our application by clicking `F5`!
