@@ -3,7 +3,7 @@
 This example shows how to:
 - [x] setup work environment for .NET Core,
 - [x] create simple WebApi project with database usage,
-- [ ] setup database without needed to install anything more than docker,
+- [x] setup database without needed to install anything more than docker,
 - [ ] setup Continuous Integration/Delivery pipeline to make sure that your code runns properly,
 - [ ] create test environment,
 - [ ] create prod environment.
@@ -98,5 +98,11 @@ You can check the detailed changes in [pull request](https://github.com/oskardud
 7. If everything went fine, then you should see `SQL Server is now ready for client connections.` in the `CMD` window.
 8. Now we need to only update our connection strings in [appsettings.json](https://github.com/oskardudycz/NetCoreWithDockerCI/blob/8758dde3b2f02fb017a09c02612062c024167a4c/src/NetCoreWithDocker/NetCoreWithDocker/appsettings.json) and [appsettings.Development.json](https://github.com/oskardudycz/NetCoreWithDockerCI/blob/8758dde3b2f02fb017a09c02612062c024167a4c/src/NetCoreWithDocker/NetCoreWithDocker/appsettings.Development.json) run `Update-Database` from `Package Manager Console` and we can run our application by clicking `F5`!
 9. Piece and cake!
+10. Summary of the [docker-compose](https://docs.docker.com/compose/) CLI can be found [here](https://docs.docker.com/compose/reference/overview/). The most important commands are:
+* `docker-compose up` - as described above, gets images and starts containers,
+* `docker-compose kill` - kills running dockers,
+* `docker-compose pull` - pulls latest docker images,
+* `docker system prune` - clean up all containers that were get through `pull` and `up` commands. Usefull for cleaning the disk space and making sure that you have the assumed version of docker (`docker system prune` + `docker-compose up`), or just resetting state of the docker container,
+* `docker ps` - lists all running docker containers.
 
 You can check the detailed changes in [pull request](https://github.com/oskardudycz/NetCoreWithDockerCI/pull/6/files)
