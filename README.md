@@ -2,7 +2,7 @@
 
 This example shows how to:
 - [x] setup work environment for .NET Core,
-- [ ] create simple WebApi project with database usage,
+- [x] create simple WebApi project with database usage,
 - [ ] setup databases without needed to install anything more than docker,
 - [ ] setup Continuous Integration/Delivery pipeline to make sure that your code runns properly,
 - [ ] create test environment,
@@ -49,18 +49,18 @@ System.Data.SqlClient.SqlException: 'Cannot open database "NetCoreWithDocker" re
 ``
 
     It basically means that it cannot login, because in fact there is no database that Entity Framework can login to. How to setup it? By using build in Migrations mechanism.
-9. It's needed to setup the migrations (event the initial one), that will create database with object<=>relation mapping defined in the [TasksDbContext](https://github.com/oskardudycz/NetCoreWithDockerCI/blob/df641d876b094eb64918c3823ede6a14529216e4/src/NetCoreWithDocker/NetCoreWithDocker/Storage/TasksDbContext.cs). To do that open `Package Manager Console` and run: `Add-Migration InitialCreate](). This will automatically freeze the current model definiton in  [Current Model Snapshot` and the define [Initial Migration]().
+9. It's needed to setup the migrations (event the initial one), that will create database with object<=>relation mapping defined in the [TasksDbContext](https://github.com/oskardudycz/NetCoreWithDockerCI/blob/df641d876b094eb64918c3823ede6a14529216e4/src/NetCoreWithDocker/NetCoreWithDocker/Storage/TasksDbContext.cs). To do that open `Package Manager Console` and run: `Add-Migration InitialCreate](). This will automatically freeze the current model definiton in  [Current Model Snapshot](https://github.com/oskardudycz/NetCoreWithDockerCI/blob/da1ab7345306933aafcce0002ee4ba54cd437d8b/src/NetCoreWithDocker/NetCoreWithDocker/Migrations/TasksDbContextModelSnapshot.cs) and the define [Initial Migration](https://github.com/oskardudycz/NetCoreWithDockerCI/blob/da1ab7345306933aafcce0002ee4ba54cd437d8b/src/NetCoreWithDocker/NetCoreWithDocker/Migrations/20170730135615_InitialCreate.cs).
 10. Now to create/update our database it's needed to run `Update-Database` from `Package Manager Console`.
 11. You should now be able to run the application. If you did all of the steps properly then you should see browser page with `http://localhost:{port}/api/values` and `[]`. That means that our [TasksController](https://github.com/oskardudycz/NetCoreWithDockerCI/blob/df641d876b094eb64918c3823ede6a14529216e4/src/NetCoreWithDocker/NetCoreWithDocker/Controllers/TasksController.cs) returned empty list of tasks - because our database is currently empty.
 12. Entity Framework also provides mechanism to add initial data (it's usefull for the eg. dictionaries or test data setup). Unfortunatelly it's needed to provide some boilerplate code for that. We need to do following steps:
 
     12.1. Run `Add-Migration InitialSeed` in the `Package Manager Console` - this will generate empty migration.
     
-    12.2. Then we need to prepare our [TasksDbContext](https://github.com/oskardudycz/NetCoreWithDockerCI/blob/df641d876b094eb64918c3823ede6a14529216e4/src/NetCoreWithDocker/NetCoreWithDocker/Storage/TasksDbContext.cs) to be also created not only from the depenedency injection. To do that we should create `TasksDbContextFactory`. This class will be used for the injecting ConnectionStrings and other options. It needs to implement `IDbContextFactory<TasksDbContext>` and unfortunatelly mimic some of the Startup Configuration reading functionality. Full implementation can be seen [here]()
+    12.2. Then we need to prepare our [TasksDbContext](https://github.com/oskardudycz/NetCoreWithDockerCI/blob/df641d876b094eb64918c3823ede6a14529216e4/src/NetCoreWithDocker/NetCoreWithDocker/Storage/TasksDbContext.cs) to be also created not only from the depenedency injection. To do that we should create [TasksDbContextFactory](https://github.com/oskardudycz/NetCoreWithDockerCI/blob/da1ab7345306933aafcce0002ee4ba54cd437d8b/src/NetCoreWithDocker/NetCoreWithDocker/Storage/TasksDbContextFactory.cs). This class will be used for the database configuration (eg. connection string) injection. It needs to implement `IDbContextFactory<TasksDbContext>` and unfortunatelly mimic some of the Startup Configuration reading functionality. Full implementation can be seen [here](https://github.com/oskardudycz/NetCoreWithDockerCI/blob/da1ab7345306933aafcce0002ee4ba54cd437d8b/src/NetCoreWithDocker/NetCoreWithDocker/Storage/TasksDbContextFactory.cs).
 
-    12.3. Now we can use our factory class in our [Initial Seed]() migration. In `Up` method we're defining our insertion, in `Down` method we're cleaning data (it' being run if something went wrong).
+    12.3. Now we can use our factory class in our [Initial Seed](https://github.com/oskardudycz/NetCoreWithDockerCI/blob/da1ab7345306933aafcce0002ee4ba54cd437d8b/src/NetCoreWithDocker/NetCoreWithDocker/Migrations/20170730140332_InitialSeed.cs) migration. In `Up` method we're defining our insertion, in `Down` method we're cleaning data (it' being run if something went wrong).
 
-    12.4. You need also to mark `appsettings.Development.json`. To do that we need to change the settings in the [NetCoreWithDocker.csproj]() from `Never` to `PreserveNewest`.
+    12.4. You need also to mark `appsettings.Development.json` as being coppied to ouput directory. To do that we need to add new settings in the [NetCoreWithDocker.csproj](https://github.com/oskardudycz/NetCoreWithDockerCI/blob/da1ab7345306933aafcce0002ee4ba54cd437d8b/src/NetCoreWithDocker/NetCoreWithDocker/NetCoreWithDocker.csproj).
     
     Now you should be able to run `Update-Database` from `Package Manager Console` to apply seeding, start application by clicking `F5` and see the results in the browser (eg. `[{"id":1,"description":"Do what you have to do"},{"id":2,"description":"Really urgent task"},{"id":3,"description":"This one has really low priority"}]`)
 
