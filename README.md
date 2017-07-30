@@ -23,3 +23,8 @@ We will use default Visual Studio template for the WebApi project:
 7. If everything went properly then you should see browser page with `http://localhost:{port}/api/values` and `["value1","value2"]`.
 
 You can check the detailed changes in [pull request](https://github.com/oskardudycz/NetCoreWithDockerCI/pull/2/files)
+
+## Add MSSQL Database to the Web Api project
+Most of our applications needs to have the database. We'll use Entity Framework and MSSQL server in this example.
+1. From the `Package Manger Console` run `Install-Package Microsoft.EntityFrameworkCore.SqlServer` and `Install-Package Microsoft.EntityFrameworkCore.Tools`. This will add Nuget Packages nessesary for the MSSQL server databasse usage.
+2. Create Entity Class (eg. `Task`) and DbContext (eg. `TasksDbContext`).
