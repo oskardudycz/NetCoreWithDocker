@@ -1,4 +1,4 @@
-# Net Core With Docker Continuous Integration
+# .Net Core With Docker
 
 This example shows how to:
 - [x] setup work environment for .NET Core,
