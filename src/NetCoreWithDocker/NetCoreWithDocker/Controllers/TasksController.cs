@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using NetCoreWithDocker.Storage;
 using NetCoreWithDocker.Storage.Entities;
-using Microsoft.EntityFrameworkCore;
 using Threading = System.Threading.Tasks;
 
 namespace NetCoreWithDocker.Controllers
@@ -33,7 +33,7 @@ namespace NetCoreWithDocker.Controllers
         {
             var result = await Tasks.FindAsync(id);
 
-            if(result == null)
+            if (result == null)
                 return NotFound(id);
 
             return Ok(result);
@@ -43,10 +43,10 @@ namespace NetCoreWithDocker.Controllers
         [HttpPost]
         public async Threading.Task<IActionResult> Post([FromBody]Task task)
         {
-            if (await Tasks.AllAsync(t => t.Id != task.Id))
-                return NotFound(task.Id);
+            if (Tasks.Any(t => t.Id == task.Id))
+                return Forbid();
 
-            Tasks.Update(task);
+            Tasks.Add(task);
             await dbContext.SaveChangesAsync();
 
             return Ok();
@@ -56,10 +56,10 @@ namespace NetCoreWithDocker.Controllers
         [HttpPut("{id}")]
         public async Threading.Task<IActionResult> Put(int id, [FromBody]Task task)
         {
-            if (Tasks.Any(t => t.Id == task.Id))
-                return Forbid();
-            
-            Tasks.Add(task);
+            if (await Tasks.AllAsync(t => t.Id != id))
+                return NotFound(task.Id);
+
+            Tasks.Update(task);
             await dbContext.SaveChangesAsync();
 
             return Ok();

@@ -1,11 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.Configuration;
-using System;
 
 namespace NetCoreWithDocker.Storage
 {
-    public class TasksDbContextFactory : IDbContextFactory<TasksDbContext>
+    public class TasksDbContextFactory : IDesignTimeDbContextFactory<TasksDbContext>
     {
         public TasksDbContext Create(DbContextFactoryOptions options)
         {
@@ -28,6 +29,11 @@ namespace NetCoreWithDocker.Storage
             optionsBuilder.UseSqlServer(connectionString);
 
             return new TasksDbContext(optionsBuilder.Options);
+        }
+
+        public TasksDbContext CreateDbContext(string[] args)
+        {
+            throw new NotImplementedException();
         }
     }
 }
