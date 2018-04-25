@@ -106,3 +106,23 @@ You can check the detailed changes in [pull request](https://github.com/oskardud
 * `docker ps` - lists all running docker containers.
 
 You can check the detailed changes in [pull request](https://github.com/oskardudycz/NetCoreWithDockerCI/pull/6/files)
+
+
+## Nuget packages to help you get started.
+I gathered and generalized all of practices used in this tutorial/samples in Nuget Packages of maintained by me [GoldenEye Framework](https://github.com/oskardudycz/GoldenEye). it provides set of base and bootstrap classes that helps you to reduce boilerplate code and help you focus on writing business code. 
+See more in:
+  * [GoldenEye Backend Core package](https://github.com/oskardudycz/GoldenEye/tree/master/src/Core/Backend.Core) - You can find all classes like repositories, etc. and many more. To use it run:
+
+  `dotnet add package GoldenEye.Backend.Core`
+  * [GoldenEye EntityFramework package](https://github.com/oskardudycz/GoldenEye/tree/master/src/Core/Backend.Core) - You can find here specific implementation of EntityFramework related Repositories, helpers etc. To use it run:
+
+  `dotnet add package GoldenEye.Backend.Core.EntityFramework`
+  * [GoldenEye WebApi package](https://github.com/oskardudycz/GoldenEye/tree/master/src/Core/Backend.Core.WebApi) - You can find all classes like Base controlers and many more. To use it run:
+
+  `dotnet add package GoldenEye.Backend.Core.WebApi`
+
+I found an issue or I have a change request
+--------------------------------
+Feel free to create an issue on GitHub. Contributions, pull requests are more than welcome!
+
+NetCoreWithDocker is Copyright &copy; 2015-2018 [Oskar Dudycz](http://oskar-dudycz.pl) and other contributors under the [MIT license](LICENSE).
