@@ -7,9 +7,9 @@ configuration: Release
 nuget:
   disable_publish_on_pr: true
 before_build:
-- cmd: dotnet restore src/GoldenEye.sln
+- cmd: dotnet restore src/NetCoreWithDocker/NetCoreWithDocker.sln
 build:
-  project: src/GoldenEye.sln
+  project: src/NetCoreWithDocker/NetCoreWithDocker.sln
   verbosity: minimal
 services:
   - mssql2016
