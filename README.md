@@ -1,3 +1,5 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/hukklo49h3t2s6hg?svg=true)](https://ci.appveyor.com/project/oskardudycz/netcorewithdocker)
+
 # .Net Core With Docker
 
 This example shows how to:
