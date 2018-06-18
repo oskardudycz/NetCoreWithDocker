@@ -1,3 +1,5 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/hukklo49h3t2s6hg?svg=true)](https://ci.appveyor.com/project/oskardudycz/netcorewithdocker)
+
 # .Net Core With Docker
 
 This example shows how to:
@@ -120,6 +122,14 @@ See more in:
   * [GoldenEye WebApi package](https://github.com/oskardudycz/GoldenEye/tree/master/src/Core/Backend.Core.WebApi) - You can find all classes like Base controlers and many more. To use it run:
 
   `dotnet add package GoldenEye.Backend.Core.WebApi`
+  
+The simplest way to start is **installing the [project template](https://github.com/oskardudycz/GoldenEye/tree/master/src/Templates/SimpleDDD/content) by running**
+
+`dotnet -i GoldenEye.WebApi.Template.SimpleDDD`
+
+**and then creating new project based on it:**
+
+`dotnet new SimpleDDD -n NameOfYourProject`
 
 I found an issue or I have a change request
 --------------------------------
