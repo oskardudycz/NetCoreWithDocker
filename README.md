@@ -137,6 +137,7 @@ The simplest way to start is **installing the [project template](https://github.
 * [MSDN - Background tasks with hosted services in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-2.1)
 * [Adam Sitnik - Span](http://adamsitnik.com/Span/)
 * [Szymon Kulec - Task, Async Await, ValueTask, IValueTaskSource and how to keep your sanity in modern .NET world](https://blog.scooletz.com/2018/05/14/task-async-await-valuetask-ivaluetasksource-and-how-to-keep-your-sanity-in-modern-net-world/)
+* [MSDN - Implementing an Implicit Transaction using Transaction Scope](https://docs.microsoft.com/pl-pl/dotnet/framework/data/transactions/implementing-an-implicit-transaction-using-transaction-scope)
 
 I found an issue or I have a change request
 --------------------------------
