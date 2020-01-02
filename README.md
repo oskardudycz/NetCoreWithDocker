@@ -149,4 +149,4 @@ I found an issue or I have a change request
 --------------------------------
 Feel free to create an issue on GitHub. Contributions, pull requests are more than welcome!
 
-**NetCoreWithDocker** is Copyright &copy; 2017-2019 [Oskar Dudycz](http://oskar-dudycz.pl) and other contributors under the [MIT license](LICENSE).
+**NetCoreWithDocker** is Copyright &copy; 2017-2020 [Oskar Dudycz](http://oskar-dudycz.pl) and other contributors under the [MIT license](LICENSE).
