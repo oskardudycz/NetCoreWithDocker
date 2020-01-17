@@ -41,7 +41,7 @@ This example contains few important things derived from the best practices like:
     * `NotFound`- will return `404` result,
     * `Forbid` - will return `403` status,
     
-    Good explanation of http status codes can be found [here](https://ict.ken.be/Data/Sites/1/images/articles/http-status-code-explained.jpg)
+    Good explanation of http status codes can be found [here](https://http.cat/)
 * few examples of the new usefull [C# 6 syntax](https://msdn.microsoft.com/en-us/magazine/dn802602.aspx)
 7. You should also update your `launchSettings.json` to redirect you by default to the `/tasks/` instead of the `/values/` route.
 8. If you run now you're application then you'll get following exception:
