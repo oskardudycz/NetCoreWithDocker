@@ -1,4 +1,4 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/hukklo49h3t2s6hg?svg=true)](https://ci.appveyor.com/project/oskardudycz/netcorewithdocker)
+![Twitter Follow](https://img.shields.io/twitter/follow/oskar_at_net?style=social) [![Build status](https://ci.appveyor.com/api/projects/status/hukklo49h3t2s6hg?svg=true)](https://ci.appveyor.com/project/oskardudycz/netcorewithdocker)
 
 # .Net Core With Docker
 
@@ -9,6 +9,14 @@ This example shows how to:
 - [ ] setup Continuous Integration/Delivery pipeline to make sure that your code runns properly,
 - [ ] create test environment,
 - [ ] create prod environment.
+
+## Support
+
+Feel free to [create an issue](https://github.com/oskardudycz/EventSourcing.NetCore/issues/new) if you have any questions or request for more explanation or samples. I also take **Pull Requests**!
+
+💖 If this repository helped you - I'd be more than happy if you **join** the group of **my official supporters** at:
+
+👉 [Github Sponsors](https://github.com/sponsors/oskardudycz) 
 
 ## Setup work environment for .NET Core
 1. Install [Docker](https://www.docker.com/get-docker) 
